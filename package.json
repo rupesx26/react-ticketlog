@@ -1,0 +1,29 @@
+{
+  "name": "react-ticketlog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rupesx26/react-ticketlog.git"
+  },
+  "keywords": [
+    "ticket",
+    "log",
+    "dashboard"
+  ],
+  "author": "rupesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rupesx26/react-ticketlog/issues"
+  },
+  "homepage": "https://github.com/rupesx26/react-ticketlog#readme",
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "^2.1.1"
+  }
+}
