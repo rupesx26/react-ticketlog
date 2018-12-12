@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,31 @@
   },
   "homepage": "https://github.com/rupesx26/react-ticketlog#readme",
   "dependencies": {
+    "less": "^3.9.0",
+    "path": "^0.12.7",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "^2.1.1"
+    "react-scripts": "^2.1.1",
+    "webpack": "^4.27.1"
+  },
+  "peerDependencies": {
+    "less": "^2.3.1 || ^3.0.0",
+    "webpack": "^2.0.0 || ^3.0.0 || ^4.0.0"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "autoprefixer": "^9.4.2",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^2.0.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less-loader": "^4.1.0",
+    "style-loader": "^0.23.1",
+    "webpack-cli": "^3.1.2"
   }
 }
