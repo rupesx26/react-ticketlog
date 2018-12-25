@@ -1,0 +1,18 @@
+@import "./counter/counter.less";
+
+.badge {
+  font-size: 15px;
+  &.badge-warning {
+    background-color: yellow;
+  }
+  &.badge-primary {
+    background-color: red;
+  }
+}
+
+@nice-blue: #5b83ad;
+@light-blue: @nice-blue + #111;
+
+.header {
+  color: @light-blue;
+}

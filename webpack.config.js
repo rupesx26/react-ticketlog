@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require("path");
 module.exports = {
   entry: "./app/index.js",
@@ -16,23 +17,30 @@ module.exports = {
         }
       },
       {
-        test: /\.less$/,
-        use: [
-          {
-            loader: "style-loader" // creates style nodes from JS strings
-          },
-          {
-            loader: "css-loader" // translates CSS into CommonJS
-          },
-          {
-            loader: "less-loader" // compiles Less to CSS
-          }
-        ]
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              //because remove style-loader,my css can't work
+              loader: "css-loader",
+              options: {
+                importLoaders: 1,
+                modules: true,
+                localIdentName: "[local]"
+              } // translates CSS into CommonJS
+            },
+            {
+              loader: "less-loader" // compiles Sass to CSS
+            }
+          ]
+        })
       },
+
       {
         test: /\.(jpe?g|png|gif|svg|ico)$/i,
         use: [
@@ -51,10 +59,12 @@ module.exports = {
       template: "./app/index.html",
       hash: true,
       filename: "index.html"
-    })
+    }),
+    new ExtractTextPlugin("main.css")
   ],
-  devServer: {  // configuration for webpack-dev-server
+  devServer: {
+    // configuration for webpack-dev-server
     // contentBase: './app/public',  //source of static assets
-    port: 3000, // port to run dev-server
+    port: 3000 // port to run dev-server
   }
 };
