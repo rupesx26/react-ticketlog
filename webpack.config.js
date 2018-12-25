@@ -52,5 +52,9 @@ module.exports = {
       hash: true,
       filename: "index.html"
     })
-  ]
+  ],
+  devServer: {  // configuration for webpack-dev-server
+    // contentBase: './app/public',  //source of static assets
+    port: 3000, // port to run dev-server
+  }
 };
